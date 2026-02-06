@@ -1,26 +1,93 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #05070B;
+  /* Deep ink */
+  --foreground: #E6ECF7;
+  /* Cool off-white */
+  --card: #0B111A;
+  --card-foreground: #E6ECF7;
+  --popover: #0B111A;
+  --popover-foreground: #E6ECF7;
+  --primary: #5B78B8;
+  /* Logo blue (approx) */
+  --primary-foreground: #05070B;
+  --secondary: #2B3E63;
+  /* Deep slate blue */
+  --secondary-foreground: #E6ECF7;
+  --muted: #101724;
+  --muted-foreground: #9FB0CC;
+  --accent: #1A2740;
+  --accent-foreground: #E6ECF7;
+  --destructive: #C53A3A;
+  --destructive-foreground: #F7EAEA;
+  --border: #172238;
+  --input: #172238;
+  --ring: #5B78B8;
+  --radius: 0px;
+  /* Brutalist sharp edges */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  cursor: none;
+  /* Hide default cursor for custom one */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* Custom Selection Color */
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Hide scrollbar for smooth scroll feel */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
